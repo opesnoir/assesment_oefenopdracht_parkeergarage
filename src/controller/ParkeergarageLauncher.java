@@ -42,15 +42,21 @@ public class ParkeergarageLauncher {
             int geparkeerdeAutos = i + 1;
 
             System.out.println("Auto " + (geparkeerdeAutos));
-            System.out.print("\t Kenteken: ");
+            System.out.print("\tKenteken: ");
             kentekens[i] = input.next();
 
-            System.out.print("\tGeparkeerde uren (max. 24): ");
-            parkeerduur[i] = input.nextInt();
+            do {
+                System.out.print("\tGeparkeerde uren (max. 24): ");
+                parkeerduur[i] = input.nextInt();
 
-            if (parkeerduur[i] > MAX_AANTAL_UREN) {
-                System.out.println("De geparkeerduur kan maximaal 24 uur zijn. ");
-            }
+                if (parkeerduur[i] > MAX_AANTAL_UREN) {
+                    System.out.println("\tDe parkeerduur kan maximaal 24 uur zijn. ");
+                    System.out.print("\tGeparkeerde uren (max. 24): ");
+                    parkeerduur[i] = input.nextInt();
+                }
+            } while (parkeerduur[i] > MAX_AANTAL_UREN);
+
+
 
 
         }
