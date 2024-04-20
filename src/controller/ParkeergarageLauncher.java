@@ -48,10 +48,10 @@ public class ParkeergarageLauncher {
             do {
                 System.out.print("\tGeparkeerde uren (max. 24): ");
                 parkeerduur[i] = input.nextInt();
-
+//TODO: uitzoeken waarom %d niet werkt om de maximale aantal uren in de zin te verwerken, zoder concatanation
                 if (parkeerduur[i] > MAX_AANTAL_UREN) {
-                    System.out.println("\tDe parkeerduur kan maximaal 24 uur zijn. ");
-                    System.out.print("\tGeparkeerde uren (max. 24): ");
+                    System.out.printf("\tDe parkeerduur kan maximaal %d uur zijn.\n", MAX_AANTAL_UREN);
+                    System.out.printf("\tGeparkeerde uren (max. %d): ", MAX_AANTAL_UREN);
                     parkeerduur[i] = input.nextInt();
                 }
             } while (parkeerduur[i] > MAX_AANTAL_UREN);
