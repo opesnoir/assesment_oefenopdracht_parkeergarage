@@ -1,5 +1,6 @@
 package controller;
 
+//stap 0 plaats doel programma, naam en studentennummer
 //Applicatiedoel, naam en studentennummer:
 /*Het doel van de applicatie is om parkeerkosten te berekenen per auto, evenals de totale parkeerkosten voor alle auto's samen, die zijn geparkeerd in de parkeergarage.
 
@@ -21,8 +22,7 @@ public class ParkeergarageLauncher {
 
     public static void main(String[] args) {
 
-
-        //stap 0
+        //stap 0 vervolg plaats naam en studentennummer
         System.out.println("Dit programma is gemaakt door: M. C., studentennummer: 500211293.");
         System.out.println();
 
@@ -44,34 +44,34 @@ public class ParkeergarageLauncher {
         parkeerkosten = new double[aantalGeparkeerdeAutos];
 
         //stap 3 vraag per auto: kenteken en parkeerduur
-        for (int i = 0; i < aantalGeparkeerdeAutos; i++) {
-            int geparkeerdeAutos = i + 1;
+        for (int teller = 0; teller < aantalGeparkeerdeAutos; teller++) {
+            int geparkeerdeAutos = teller + 1;
 
             System.out.println("Auto " + (geparkeerdeAutos));
             System.out.print("\tKenteken: ");
-            kentekens[i] = input.next();
+            kentekens[teller] = input.next();
 
             do {
                 System.out.print("\tGeparkeerde uren (max. 24): ");
-                parkeerduur[i] = input.nextInt();
-                if (parkeerduur[i] > MAX_AANTAL_UREN) {
+                parkeerduur[teller] = input.nextInt();
+                if (parkeerduur[teller] > MAX_AANTAL_UREN) {
                     System.out.printf("\tDe parkeerduur kan maximaal %d uur zijn.\n", MAX_AANTAL_UREN); //notitie voor mezelf: opmaak printf
                     System.out.printf("\tGeparkeerde uren (max. %d): ", MAX_AANTAL_UREN);
-                    parkeerduur[i] = input.nextInt();
+                    parkeerduur[teller] = input.nextInt();
                 }
-            } while (parkeerduur[i] > MAX_AANTAL_UREN);
+            } while (parkeerduur[teller] > MAX_AANTAL_UREN);
         }
 
         //stap 4 sla parkeerkosten op in array: parkeerkosten[], calculatie methode: berekenParkeergeld()
-        for (int i = 0; i < aantalGeparkeerdeAutos; i++) {
-            parkeerkosten[i] = berekenParkeergeld(parkeerduur[i]);
+        for (int teller = 0; teller < aantalGeparkeerdeAutos; teller++) {
+            parkeerkosten[teller] = berekenParkeergeld(parkeerduur[teller]);
         }
 
         //stap 5 print parkeeroverzicht per auto met parkeerduur, kosten en totaalbedrag
         System.out.println("Parkeeroverzicht");
         System.out.printf("%8s%9s%12s\n", "kenteken", "uren", "bedrag"); //notitie voor mezelf: opmaak %s en cijfer is afstand
-        for (int i = 0; i < aantalGeparkeerdeAutos; i++) {
-            System.out.printf("%8s%9d%12.2f\n", kentekens[i], parkeerduur[i], parkeerkosten[i]);//ook hier printf
+        for (int teller = 0; teller < aantalGeparkeerdeAutos; teller++) {
+            System.out.printf("%8s%9d%12.2f\n", kentekens[teller], parkeerduur[teller], parkeerkosten[teller]);//ook hier printf
         }
 
         //stap 6 sla op de som van alle parkeerkosten, bereken methode: berekenTotaleParkeerKosten()
@@ -79,7 +79,6 @@ public class ParkeergarageLauncher {
 
         //stap 7 print de som van alle parkeerkosten
         System.out.println("Totaal van alle parkeergelden: " + somParkeerkosten + " euro.");
-
     }
 
     //stap 4 methode - bereken het parkeergeld
@@ -100,11 +99,11 @@ public class ParkeergarageLauncher {
     }
 
     //stap 6 methode - som totale parkeerkosten berekenen (p. 228 boek)
-    public static double berekenTotaleParkeerKosten(double [] parkeerkosten){
+    public static double berekenTotaleParkeerKosten(double[] parkeerkosten) {
         double som = 0.0;
 
-        for (int i = 0; i < parkeerkosten.length; i++) {
-            som += parkeerkosten[i];
+        for (int teller = 0; teller < parkeerkosten.length; teller++) {
+            som += parkeerkosten[teller];
         }
         return som;
     }
