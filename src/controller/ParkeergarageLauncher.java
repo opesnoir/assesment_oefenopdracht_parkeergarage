@@ -81,6 +81,8 @@ public class ParkeergarageLauncher {
         System.out.println("Totaal van alle parkeergelden: " + somParkeerkosten + " euro.");
     }
 
+
+    //maak methoden voor stap 4 en stap 6
     //stap 4 methode - bereken het parkeergeld
     public static double berekenParkeergeld(int geparkeerdeUren) {
         double totaleParkeerkosten;
